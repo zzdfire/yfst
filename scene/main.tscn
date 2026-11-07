@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://byc61yiaub6il"]
+
+[ext_resource type="Script" uid="uid://dif83u0ck3icx" path="res://script/rotate.gd" id="1_itxqv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_v0l8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mecec"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_esbqv"]
+
+[sub_resource type="Sky" id="Sky_2quql"]
+sky_material = SubResource("ProceduralSkyMaterial_esbqv")
+
+[sub_resource type="Environment" id="Environment_bo0gg"]
+background_mode = 2
+sky = SubResource("Sky_2quql")
+ambient_light_source = 2
+reflected_light_source = 1
+
+[node name="main" type="Node" unique_id=1251056648]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1118970782]
+mesh = SubResource("CapsuleMesh_v0l8b")
+surface_material_override/0 = SubResource("StandardMaterial3D_mecec")
+script = ExtResource("1_itxqv")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=631795091]
+environment = SubResource("Environment_bo0gg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1204572560]
+transform = Transform3D(1, 0, 0, 0, 0.8022864, 0.5969393, 0, -0.5969393, 0.8022864, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1703103482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 3)
